@@ -16,17 +16,13 @@ This repository contains implementations and experiments with different Graph Ne
 ├── src/
 │   ├── models/
 │   │   ├── __init__.py
+|   |   ├── gin.py
 │   │   ├── gcn.py
 │   │   └── gat.py
 │   ├── experiments/
 │   │   ├── __init__.py
-│   │   ├── layer_analysis.py
+│   │   ├── run_experiments.py
 │   │   └── dataset_comparison.py
-│   └── utils/
-│       ├── __init__.py
-│       └── data_utils.py
-├── notebooks/
-│   └── experiments.ipynb
 └── results/
     └── figures/
 ```
@@ -36,7 +32,6 @@ This repository contains implementations and experiments with different Graph Ne
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/gnn-experiments.git
-cd gnn-experiments
 ```
 
 2. Create a virtual environment and install dependencies:
@@ -54,6 +49,7 @@ pip install -r requirements.txt
 - Matplotlib
 - NumPy
 - Scikit-learn
+- Pandas
 
 ## Experiments
 
@@ -63,11 +59,20 @@ We investigate the impact of increasing the number of layers in GNN architecture
 - GAT performance with varying depths
 - Analysis of oversquashing and oversmoothing effects
 
+```bash
+python -m src.experiments.run_experiments
+```
+
+
 ### Dataset Experiments
 Performance comparison across different datasets:
 - Cora (Citation Network)
 - IMDB-BINARY (Movie Collaboration)
 - ENZYMES (Protein Structures)
+
+```bash
+python -m src.experiments.dataset_comparison
+```
 
 ## Results
 
@@ -76,18 +81,4 @@ Key findings:
 2. Dataset-specific performance characteristics
 3. Empirical analysis of optimal layer depths
 
-## Citation
 
-If you find this code useful in your research, please consider citing:
-```bibtex
-@misc{gnn-experiments,
-  author = {Your Name},
-  title = {Graph Neural Network Experiments},
-  year = {2024},
-  publisher = {GitHub},
-  url = {https://github.com/yourusername/gnn-experiments}
-}
-```
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
